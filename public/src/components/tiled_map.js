@@ -1,16 +1,15 @@
 'use strict';
 
 Crafty.c('TiledMap', {
-  setTiledMap: function (tiledMap, done) {
+  setTiledMap: function (tiledMap) {
     this.name = name;
 
     this._tiled = tiledMap;
+    this._setCurrentLevel();
 
     this._loadTilesets();
     this._createTileEntities();
     this._createObjectEntities();
-    this._setCurrentLevel();
-    done();
   },
 
   _loadTilesets: function () {
@@ -77,8 +76,8 @@ Crafty.c('TiledMap', {
     }).forEach(function (layer, layerPosition) {
       layer.objects.forEach(function (object) {
         if (object.type === 'Player') {
-          var x = Math.floor(object.x / Game.map_grid.tile.width);
-          var y = Math.floor(object.y / Game.map_grid.tile.height);
+          var x = Math.floor(object.x / Config.currentLevel.tilewidth);
+          var y = Math.floor(object.y / Config.currentLevel.tileheight);
           new Player(x, y);
         }
         var objectType = (object.type || 'Block');

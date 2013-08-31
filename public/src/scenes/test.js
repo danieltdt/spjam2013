@@ -5,9 +5,8 @@
     $.ajax({
       url: '/src/levels/testcolisao.json'
     }).done(function (tiled) {
-      Crafty.e('2D, DOM, TiledMap').setTiledMap(tiled, function () {
-        var t = new Table(22, 15);
-      });
+      Crafty.e('2D, DOM, TiledMap').setTiledMap(tiled);
+      new Table(22, 15);
     });
   });
 })(Crafty, jQuery);
