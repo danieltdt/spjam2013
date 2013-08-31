@@ -32,7 +32,7 @@ Crafty.c('PlayerCharacter', {
       this.requires('Actor, Fourway, Color, Collision')
         .fourway(4)
         .color('rgb(20, 75, 40)')
-        .collision( new Crafty.polygon([10,50],[40,50],[40,80],[10,80]) )
+        .collision( new Crafty.polygon([10,10],[40,10],[40,40],[10,40]) )
         .bind('Moved', function(from) {        
           // stop moving when hit obstacle
           if( this.hit('Block') ){
@@ -101,6 +101,7 @@ Crafty.c('PlayerCharacter', {
 Crafty.c('Table', {
   init: function() {
     this.requires('Actor, Color, Collision, Block')
-      .color('rgb(195, 33, 72)');
+      .color('rgb(195, 33, 72)')
+      .collision();
   },
 });
