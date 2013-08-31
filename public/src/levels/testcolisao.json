@@ -13,16 +13,16 @@
         },
         {
          "height":30,
-         "name":"colision",
+         "name":"collision",
          "objects":[
                 {
                  "height":864,
-                 "name":"",
+                 "name":"parede-esquerda",
                  "properties":
                     {
 
                     },
-                 "type":"",
+                 "type":"block",
                  "visible":true,
                  "width":32,
                  "x":0,
@@ -30,12 +30,12 @@
                 },
                 {
                  "height":64,
-                 "name":"",
+                 "name":"parede-baixo",
                  "properties":
                     {
 
                     },
-                 "type":"",
+                 "type":"block",
                  "visible":true,
                  "width":896,
                  "x":32,
@@ -43,12 +43,12 @@
                 },
                 {
                  "height":864,
-                 "name":"",
+                 "name":"parede-direita",
                  "properties":
                     {
 
                     },
-                 "type":"",
+                 "type":"block",
                  "visible":true,
                  "width":32,
                  "x":928,
@@ -56,16 +56,29 @@
                 },
                 {
                  "height":64,
-                 "name":"",
+                 "name":"parede-cima",
                  "properties":
                     {
 
                     },
-                 "type":"",
+                 "type":"block",
                  "visible":true,
                  "width":896,
                  "x":32,
                  "y":96
+                },
+                {
+                 "height":32,
+                 "name":"porta",
+                 "properties":
+                    {
+                     "collision":"false"
+                    },
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":384,
+                 "y":256
                 }],
          "opacity":1,
          "type":"objectgroup",
