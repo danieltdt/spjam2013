@@ -30,12 +30,12 @@ Crafty.c('Actor', {
 Crafty.c('PlayerCharacter', {
     init: function() {
       this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')
-        .animate("walk_left", 0, 1, 3)
-        .animate("walk_right", 0, 2, 3) 
-        .animate("walk_up", 0, 3, 3)  
-        .animate("walk_down", 0, 0, 3)
+        .animate("walk_left", 0, 2, 1)
+        .animate("walk_right", 0, 3, 1) 
+        .animate("walk_up", 0, 1, 1)  
+        .animate("walk_down", 0, 0, 1)
         .fourway(2)
-        .collision( new Crafty.polygon([10,10],[40,10],[40,40],[10,40]))
+        .collision( new Crafty.polygon([5,50],[45,50],[45,95],[5,95]))
         .bind('Moved', function(from) {        
           // stop moving when hit obstacle
           if( this.hit('Block') ){
@@ -45,6 +45,7 @@ Crafty.c('PlayerCharacter', {
 
         var animation_speed = 12;
         this.bind('NewDirection', function(data) {
+          this.stop();
           if (data.x > 0) {
             this.animate('walk_right', animation_speed, -1);
           } else if (data.x < 0) {
@@ -53,8 +54,6 @@ Crafty.c('PlayerCharacter', {
             this.animate('walk_down', animation_speed, -1);
           } else if (data.y < 0) {
             this.animate('walk_up', animation_speed, -1);
-          } else {
-            this.stop();
           }
         }); 
     }

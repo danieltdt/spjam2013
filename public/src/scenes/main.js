@@ -21,7 +21,7 @@
      
         // Define the PC's sprite to be the first sprite in the third row of the
         //  animation sprite map
-        Crafty.sprite(50, 67.25, '/web/images/player.png', {
+        Crafty.sprite(50, 100, '/web/images/neusa.png', {
           spr_player:  [0, 0],
         }, 0, 0);
      

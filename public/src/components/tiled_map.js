@@ -78,7 +78,9 @@ Crafty.c('TiledMap', {
         if (object.type === 'Player') {
           var x = Math.floor(object.x / Config.currentLevel.tilewidth);
           var y = Math.floor(object.y / Config.currentLevel.tileheight);
-          new Player(x, y);
+          
+          var p = new Player(x, y);
+          p.attr({z: 100});
         }
         var objectType = (object.type || 'Block');
         Crafty.e('2D, Canvas, Collision, ' + objectType)
