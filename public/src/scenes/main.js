@@ -16,12 +16,12 @@
         //  to remind us that they simply cause the entity
         //  to be drawn with a certain sprite
         Crafty.sprite(32, '/web/images/objects.png', {
-          spr_table:  [0, 2]
+          spr_table:  [2, 0]
         });
      
         // Define the PC's sprite to be the first sprite in the third row of the
         //  animation sprite map
-        Crafty.sprite(32, 48, '/web/images/player.png', {
+        Crafty.sprite(50, 67.25, '/web/images/player.png', {
           spr_player:  [0, 0],
         }, 0, 0);
      
