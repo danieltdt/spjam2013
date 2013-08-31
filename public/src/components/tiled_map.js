@@ -9,6 +9,7 @@ Crafty.c('TiledMap', {
     this._loadTilesets();
     this._createTileEntities();
     this._createObjectEntities();
+    this._setCurrentLevel();
     done();
   },
 
@@ -91,5 +92,9 @@ Crafty.c('TiledMap', {
         });
       });
     });
+  },
+
+  _setCurrentLevel: function () {
+    Config.currentLevel = this._tiled;
   },
 });
