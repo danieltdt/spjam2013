@@ -29,16 +29,34 @@ Crafty.c('Actor', {
 
 Crafty.c('PlayerCharacter', {
     init: function() {
-      this.requires('Actor, Fourway, Color, Collision')
+      this.requires('Actor, Fourway, Color, Collision, spr_player, SpriteAnimation')
+        .animate("walk_left", 0, 1, 3)
+        .animate("walk_right", 0, 2, 3) 
+        .animate("walk_up", 0, 3, 3)  
+        .animate("walk_down", 0, 0, 3)
         .fourway(4)
-        .color('rgb(20, 75, 40)')
-        .collision( new Crafty.polygon([10,10],[40,10],[40,40],[10,40]) )
+        .collision( new Crafty.polygon([10,10],[40,10],[40,40],[10,40]))
         .bind('Moved', function(from) {        
           // stop moving when hit obstacle
           if( this.hit('Block') ){
             this.attr({x: from.x, y:from.y});
           }
         });
+
+        var animation_speed = 8;
+        this.bind('NewDirection', function(data) {
+          if (data.x > 0) {
+            this.animate('walk_right', animation_speed, -1);
+          } else if (data.x < 0) {
+            this.animate('walk_left', animation_speed, -1);
+          } else if (data.y > 0) {
+            this.animate('walk_down', animation_speed, -1);
+          } else if (data.y < 0) {
+            this.animate('walk_up', animation_speed, -1);
+          } else {
+            this.stop();
+          }
+        }); 
     }
 });
 
@@ -100,7 +118,7 @@ Crafty.c('PlayerCharacter', {
 // A table is just an Actor with a certain color
 Crafty.c('Table', {
   init: function() {
-    this.requires('Actor, Color, Collision, Block')
+    this.requires('Actor, Color, spr_table, Collision, Block')
       .color('rgb(195, 33, 72)')
       .collision();
   },
