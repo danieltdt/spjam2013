@@ -84,6 +84,7 @@
     // Custom Globals
     "globals"       : {         // additional predefined global variables
       "window": true,
+      "jQuery": true,
       "Crafty": true
     }
 }

@@ -1,8 +1,11 @@
-(function (Crafty) {
+(function (Crafty, $) {
   'use strict';
 
   Crafty.scene('test', function () {
-    var tiled = {}; //FIXME: Load JSON
-    Crafty.e('2D DOM TiledMap').setTiledMap('Test', tiled);
+    $.ajax({
+      url: '/src/levels/testcolisao.json'
+    }).done(function (tiled) {
+      Crafty.e('2D DOM TiledMap').setTiledMap('Test', tiled);
+    });
   });
-})(Crafty);
+})(Crafty, jQuery);
