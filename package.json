@@ -1,0 +1,22 @@
+{
+  "name": "spjam2013",
+  "version": "0.0.0",
+  "description": "spjam2013 =========",
+  "main": "app.js",
+  "dependencies": {
+    "node-static": "~0.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danieltdt/spjam2013.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/danieltdt/spjam2013/issues"
+  }
+}

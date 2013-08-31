@@ -10,7 +10,7 @@
          "width":30,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "height":30,
          "name":"colision",
@@ -27,7 +27,7 @@
                  "width":32,
                  "x":0,
                  "y":96
-                }, 
+                },
                 {
                  "height":64,
                  "name":"",
@@ -40,7 +40,7 @@
                  "width":896,
                  "x":32,
                  "y":928
-                }, 
+                },
                 {
                  "height":864,
                  "name":"",
@@ -53,7 +53,7 @@
                  "width":32,
                  "x":928,
                  "y":96
-                }, 
+                },
                 {
                  "height":64,
                  "name":"",
@@ -83,7 +83,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"..\/..\/..\/..\/..\/Dropbox\/SPJam2013\/Level\/sewer_tileset.png",
+         "image":"/web/images/sewer_tileset.png",
          "imageheight":217,
          "imagewidth":192,
          "margin":0,
