@@ -2,7 +2,7 @@
   'use strict';
 
   window.onload = function () {
-    Crafty.init(800, 600);
+    Crafty.init(Config.viewportWidth, Config.viewportHeight);
     Crafty.scene('Load');
   };
 })(window, Crafty);
