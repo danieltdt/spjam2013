@@ -1,59 +1,95 @@
 'use strict';
 
 Crafty.c('TiledMap', {
-  setTiledMap: function (name, tiledMap) {
+  setTiledMap: function (tiledMap, done) {
     this.name = name;
 
     this._tiled = tiledMap;
-    this._dimensions = [this._tiled.width, this._tiled.height];
 
     this._loadTilesets();
-    this._loadObjects();
+    this._createTileEntities();
+    this._createObjectEntities();
+    done();
   },
 
   _loadTilesets: function () {
     var self = this;
 
     self._tiled.tilesets.forEach(function (tileset) {
-      var imageheight = (tileset.imageheight - (2 * tileset.margin));
-      var imagewidth = (tileset.imagewidth - (2 * tileset.margin));
-
-      var heightInTiles = Math.floor(imageheight / tileset.tileheight);
-      var widthInTiles = Math.floor(imagewidth / tileset.tilewidth);
-
-      var map = {};
-      map['Map' + self.name] = [0, 0, widthInTiles, heightInTiles];
-
       Crafty.sprite(
         tileset.tilewidth,
         tileset.tileheight,
         tileset.image,
-        map,
-        tileset.margin,
-        tileset.margin
+        self.arrangeTiles(tileset),
+        tileset.spacing,
+        tileset.spacing
       );
     });
   },
 
-  _loadObjects: function () {
+  arrangeTiles: function (tileset){
+    var columns = Math.round(
+      tileset.imagewidth / (tileset.tilewidth + tileset.margin)
+    );
+    var rows = Math.round(
+      tileset.imageheight / (tileset.tileheight + tileset.margin)
+    );
+    var tilesMap = {};
+
+    for (var row = 0; row < rows; row++) {
+      for (var column = 0; column < columns; column++) {
+        var name =
+          "Tile" + ((parseInt(tileset.firstgid) + column) + (columns * row));
+
+        tilesMap[name] = [column, row];
+      };
+    }
+
+    return tilesMap;
+  },
+
+  _createTileEntities: function () {
+    var self = this;
+
+    self._tiled.layers.filter(function (layer) {
+      return layer.type === 'tilelayer';
+    }).forEach(function (layer, layerPosition) {
+      layer.data.forEach(function (tileGid, i) {
+        var column = i % layer.width;
+        var row = Math.floor((i / layer.width));
+
+        Crafty.e('2D, Canvas, Tile' + tileGid)
+        .attr({
+          x: column * self._tiled.tilewidth,
+          y: row * self._tiled.tileheight,
+          z: layerPosition
+        })
+      });
+    });
+  },
+
+  _createObjectEntities: function () {
     var self = this;
 
     self._tiled.layers.filter(function (layer) {
       return layer.type === 'objectgroup';
     }).forEach(function (layer, layerPosition) {
-      if (layer.name === 'collision') {
-        layer.objects.forEach(function (object) {
-          var objectType = (object.type || 'block');
-          Crafty.e('2D, Collision, ' + objectType)
-          .attr({
-            x: object.x,
-            y: object.y,
-            w: object.width,
-            h: object.height,
-            z: layerPosition
-          });
+      layer.objects.forEach(function (object) {
+        if (object.type === 'Player') {
+          var x = Math.floor(object.x / Game.map_grid.tile.width);
+          var y = Math.floor(object.y / Game.map_grid.tile.height);
+          new Player(x, y);
+        }
+        var objectType = (object.type || 'Block');
+        Crafty.e('2D, Canvas, Collision, ' + objectType)
+        .attr({
+          x: object.x,
+          y: object.y,
+          w: object.width,
+          h: object.height,
+          z: layerPosition
         });
-      }
+      });
     });
   },
 });

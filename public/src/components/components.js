@@ -7,7 +7,7 @@ Crafty.c('Grid', {
       h: Game.map_grid.tile.height
     })
   },
- 
+
   // Locate this entity at the given position on the grid
   at: function(x, y) {
     if (x === undefined && y === undefined) {
@@ -18,7 +18,7 @@ Crafty.c('Grid', {
     }
   }
 });
- 
+
 // An "Actor" is an entity that is drawn in 2D on canvas
 //  via our logical coordinate grid
 Crafty.c('Actor', {

@@ -13,7 +13,7 @@
         },
         {
          "height":30,
-         "name":"collision",
+         "name":"objects",
          "objects":[
                 {
                  "height":864,
@@ -22,7 +22,7 @@
                     {
 
                     },
-                 "type":"block",
+                 "type":"",
                  "visible":true,
                  "width":32,
                  "x":0,
@@ -35,7 +35,7 @@
                     {
 
                     },
-                 "type":"block",
+                 "type":"",
                  "visible":true,
                  "width":896,
                  "x":32,
@@ -48,7 +48,7 @@
                     {
 
                     },
-                 "type":"block",
+                 "type":"",
                  "visible":true,
                  "width":32,
                  "x":928,
@@ -61,7 +61,7 @@
                     {
 
                     },
-                 "type":"block",
+                 "type":"",
                  "visible":true,
                  "width":896,
                  "x":32,
@@ -78,6 +78,19 @@
                  "visible":true,
                  "width":32,
                  "x":384,
+                 "y":256
+                },
+                {
+                 "height":32,
+                 "name":"Player",
+                 "properties":
+                    {
+
+                    },
+                 "type":"Player",
+                 "visible":true,
+                 "width":32,
+                 "x":480,
                  "y":256
                 }],
          "opacity":1,

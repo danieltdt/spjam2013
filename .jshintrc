@@ -85,6 +85,8 @@
     "globals"       : {         // additional predefined global variables
       "window": true,
       "jQuery": true,
-      "Crafty": true
+      "Crafty": true,
+      "Player": true,
+      "Table": true,
     }
 }
