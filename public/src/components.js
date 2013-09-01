@@ -137,6 +137,12 @@ Crafty.c('Tile', {
   }
 });
 
+Crafty.c('Event', {
+  init: function () {
+    this.requires('Block');
+  }
+});
+
 Crafty.c('TiledMap', {
   setTiledMap: function (tiledMap) {
     this._tiled = tiledMap;
