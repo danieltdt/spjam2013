@@ -1,6 +1,15 @@
+body {
+  background-color: #000;
+}
+
+#cr-stage {
+  margin: 0 auto;
+}
+
 #fps-counter {
   position: absolute;
   color: #F00;
   right: 10px;
   top: 10px;
+  z-index: 1001;
 }
