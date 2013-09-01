@@ -41,7 +41,8 @@
       '/web/images/objetos.png',
       '/web/images/tubarerna.png',
       '/web/images/wanted_poster.png',
-      '/web/images/chars/neusa.png'
+      '/web/images/chars/neusa.png',
+      '/web/images/chars/hero.png'
     ], function () {
         // Once the images are loaded...
 
@@ -58,6 +59,10 @@
         //  animation sprite map
         Crafty.sprite(50, 100, '/web/images/chars/neusa.png', {
           spr_player:  [0, 0],
+        }, 0, 0);
+
+        Crafty.sprite(50, 100, '/web/images/chars/hero.png', {
+          spr_hero:  [0, 0],
         }, 0, 0);
 
         // Pointless setTimeout

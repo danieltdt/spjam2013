@@ -113,6 +113,58 @@ Crafty.c('PlayerCharacter', {
   }
 });
 
+Crafty.c('HeroCharacter', {
+  init: function () {
+    this.requires('Actor, Fourway, Collision, spr_hero, SpriteAnimation')
+    .animate('walk_left', 0, 2, 4)
+    .animate('walk_right', 0, 3, 4)
+    .animate('walk_up', 0, 1, 4)
+    .animate('walk_down', 0, 0, 4)
+    .fourway(3)
+    .collision(new Crafty.polygon([8, 50], [45, 50], [45, 100], [8, 100]));
+
+    this.disableControl();
+    
+    new HeroName(this.x, this.y);
+
+    this.bind('Moved', function (from) {
+      //moves name together
+      Crafty('HeroName').trigger('Move');
+    });
+
+    var animationSpeed = 12;
+    this.bind('NewDirection', function (data) {
+      this.stop();
+      if (data.x > 0) {
+        this.animate('walk_right', animationSpeed, -1);
+      } else if (data.x < 0) {
+        this.animate('walk_left', animationSpeed, -1);
+      } else if (data.y > 0) {
+        this.animate('walk_down', animationSpeed, -1);
+      } else if (data.y < 0) {
+        this.animate('walk_up', animationSpeed, -1);
+      }
+    });
+  }
+});
+
+Crafty.c('HeroName', {
+  init: function() {
+    this.requires("2D, Grid, DOM, Text")
+    .attr({
+      w: 50,
+      h: 20
+    })
+    .text("xXx D@rK BR LOL s2")
+    .css({ "text-align": "center" });
+
+    this.bind('Move', function() {
+      this.attr({ x: Crafty('HeroCharacter').x,
+                y: Crafty('HeroCharacter').y - 30 });
+    });
+  }
+});
+
 Crafty.c('PlayerName', {
   init: function () {
     var player = Crafty('PlayerCharacter');

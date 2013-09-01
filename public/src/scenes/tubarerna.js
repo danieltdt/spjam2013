@@ -6,11 +6,14 @@
       new Door(8, 11).setDestination('Village');
       new Door(7, 11).setDestination('Village');
 
+      var player = Crafty('PlayerCharacter');
+
       //if Tubarerna Quest is not done and no quest is on going, start Tubarerna Quest actions
       if( Config.completedQuests.indexOf['TubarernaQuest'] < 0 && Config.doingQuest == null ) {
+        //player.disableControl();
         //player.move([e,w], tiles * [Config.currentLevel.tilewidth])
         //player.move([n,s], tiles * [Config.currentLevel.tileheight])
-        // new Hero()
+        //var hero = new Hero(7,11);
         //hero.moves in([e,w], tiles * [Config.currentLevel.tilewidth])
         //hero.moves in([n,s], tiles * [Config.currentLevel.tileheight])
 
