@@ -27,6 +27,19 @@ Crafty.c('Grid', {
   }
 });
 
+Crafty.c('ShowFPS', {
+  init: function () {
+    var fpsElement = document.getElementById('fps-counter');
+    Crafty.stage.elem.appendChild(fpsElement);
+
+    this.requires('FPS')
+    .bind('MessureFPS', function (fps) {
+      fpsElement.innerHTML = fps.value;
+    });
+
+  }
+});
+
 // An 'Actor' is an entity that is drawn in 2D on canvas
 //  via our logical coordinate grid
 Crafty.c('Actor', {
@@ -65,14 +78,17 @@ Crafty.c('PlayerCharacter', {
     .animate('walk_down', 0, 0, 4)
     .fourway(2)
     .collision(new Crafty.polygon([5, 50], [45, 50], [45, 95], [5, 95]));
+
     new PlayerName(this.x, this.y);
 
     this.bind('Moved', function (from) {
-      //moves name together
-      Crafty('PlayerName').trigger('Move');
       // stop moving when hit obstacle
       if (this.hit('Block')) {
-        this.attr({x: from.x, y: from.y});
+        this.x = from.x;
+        this.y = from.y;
+      } else {
+        //moves name together
+        Crafty('PlayerName').trigger('Move');
       }
     });
 

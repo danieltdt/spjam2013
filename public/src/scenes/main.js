@@ -17,6 +17,8 @@
       new Bucket(10, 10);
       new Door(36,10).setDestination('House');
 
+      Crafty.e('ShowFPS');
+
       Crafty.viewport.follow(Crafty('PlayerCharacter'), 0, 0);
     });
   });

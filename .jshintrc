@@ -84,9 +84,11 @@
     // Custom Globals
     "globals"       : {         // additional predefined global variables
       "window": true,
+      "document": true,
       "jQuery": true,
       "Crafty": true,
       "Player": true,
+      "PlayerName": true,
       "Table": true,
       "Config": true,
       "MapHandler": true
