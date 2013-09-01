@@ -15,7 +15,8 @@
       Crafty.audio.stop();
       Crafty.audio.play('inn_song', -1);
 
-      new Door(4,5).setDestination('Village');
+      new Door(8,9).setDestination('Village');
+      new Door(7,9).setDestination('Village');
 
       Crafty.viewport.follow(Crafty('PlayerCharacter'), 0, 0);
     });

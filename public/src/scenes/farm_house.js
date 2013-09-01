@@ -16,7 +16,8 @@
       Crafty.audio.stop();
       Crafty.audio.play('farm_house_song', -1);
 
-      new Door(4,5).setDestination('Village');
+      new Door(4,6).setDestination('Village');
+      new Door(5,6).setDestination('Village');
 
       Crafty.viewport.follow(Crafty('PlayerCharacter'), 0, 0);
     });

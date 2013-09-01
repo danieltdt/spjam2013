@@ -15,7 +15,8 @@
       Crafty.audio.stop();
       Crafty.audio.play('apotecarie_song', -1);
 
-      new Door(4,5).setDestination('Village');
+      new Door(7,8).setDestination('Village');
+      new Door(8,8).setDestination('Village');
 
       Crafty.viewport.follow(Crafty('PlayerCharacter'), 0, 0);
     });
