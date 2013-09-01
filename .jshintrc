@@ -91,6 +91,8 @@
       "PlayerName": true,
       "Table": true,
       "Config": true,
+      "Door": true,
+      "Obsidian": true,
       "MapHandler": true
     }
 }

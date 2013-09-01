@@ -2,7 +2,7 @@
   'use strict';
 
   Crafty.scene('Load', function() {
-    Crafty.background('#FFF');
+    Crafty.background('#000');
     Crafty.e('2D, DOM, Text')
       .attr({
         w: Config.viewportWidth,
@@ -29,7 +29,7 @@
       '/web/images/fazenda.png',
       '/web/images/parede_e_piso.png',
       '/web/images/village_bg.png',
-      '/web/images/cama_ocupada_2.png', 
+      '/web/images/cama_ocupada_2.png',
       '/web/images/cama.png',
       '/web/images/estante_4.png',
       '/web/images/inn.png',
