@@ -955,7 +955,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "image":"/web/images/tiles sheet.jpg",
+         "image":"/web/images/tiles_sheet.jpg",
          "imageheight":150,
          "imagewidth":400,
          "margin":0,
@@ -971,7 +971,7 @@
         }, 
         {
          "firstgid":25,
-         "image":"/web/images/objetos3.png",
+         "image":"/web/images/objetos.png",
          "imageheight":500,
          "imagewidth":400,
          "margin":0,

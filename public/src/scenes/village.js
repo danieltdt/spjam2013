@@ -17,6 +17,7 @@
       Crafty.audio.stop();
       Crafty.audio.play('village_song', -1, 1.0);
 
+      new Door(4,26).setDestination('Apotecarie');
       new Door(36,10).setDestination('Apotecarie');
       new Door(21,10).setDestination('Tubarerna');
       new Door(38,23).setDestination('Inn');

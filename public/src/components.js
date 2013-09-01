@@ -77,7 +77,7 @@ Crafty.c('PlayerCharacter', {
     .animate('walk_up', 0, 1, 4)
     .animate('walk_down', 0, 0, 4)
     .fourway(2)
-    .collision(new Crafty.polygon([5, 50], [45, 50], [45, 95], [5, 95]));
+    .collision(new Crafty.polygon([0, 50], [50, 50], [50, 100], [0, 100]));
 
     new PlayerName(this.x, this.y);
 
