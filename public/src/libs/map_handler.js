@@ -127,13 +127,13 @@
                 tile = tileStore[tileGid].pop();
                 tile.visible = true;
               } else {
-                tile = Crafty.e('Tile, Tile' + tileGid);
-                tile.setGid(tileGid);
+                tile = Crafty.e('Tile, Tile' + tileGid).setGid(tileGid);
               }
 
+              console.log(column, row);
               tile.attr({
-                x: column * tileSizeInPx.x,
-                y: row * tileSizeInPx.y
+                x: column * tileSizeInPx.width,
+                y: row * tileSizeInPx.height
               });
 
               boxStore[curBox].tiles.push(tile);
@@ -143,7 +143,9 @@
       }
       boxStore[curBox].loaded = true;
     };
+
     self.changeLoc(initX, initY);
+
     return this;
   }
 
