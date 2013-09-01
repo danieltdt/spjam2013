@@ -13,3 +13,8 @@ body {
   top: 10px;
   z-index: 1001;
 }
+
+.PlayerName {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}

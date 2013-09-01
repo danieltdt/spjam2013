@@ -111,19 +111,18 @@ Crafty.c('PlayerCharacter', {
 });
 
 Crafty.c('PlayerName', {
-  init: function() {
-    this.requires("2D, Grid, DOM, Text")
+  init: function () {
+    var player = Crafty('PlayerCharacter');
+    this.requires('2D, Grid, DOM, Text')
     .attr({
-      w: 50,
+      w: 150,
       h: 20
     })
-    .text("Neusa P. da Cunha")
-    .css({ "text-align": "center" });
+    .text('&lt;Neusa P. da Cunha&gt;')
+    .css({left: '-40px', top: '-20px'})
+    .textFont({size: '13px', weight: 'bold'});
 
-    this.bind('Move', function() {
-      this.attr({ x: Crafty('PlayerCharacter').x,
-                y: Crafty('PlayerCharacter').y - 30 });
-    });
+    player.attach(this);
   }
 });
 
