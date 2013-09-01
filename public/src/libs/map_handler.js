@@ -6,10 +6,10 @@
   function MapHandler(initX, initY, tiledMap) {
     var self = this;
 
-    var visibleTiles = tiledMap.layers.filter(function (layer) {
+    var visibleLayers = tiledMap.layers.filter(function (layer) {
       return layer.visible && layer.type === 'tilelayer';
     }).map(function (layer) {
-      return layer.data;
+      return {data: layer.data, z: layer.z};
     });
 
     var boxStore = {};  // tiles within a map segment
@@ -90,7 +90,7 @@
         if (boxStore[boxId]) {
           boxStore[boxId].loaded = false;
         }
-      }, 10);
+      }, 1000);
     };
 
     var loadBox = function (curBox) {
@@ -105,19 +105,19 @@
       var tileRow = Math.floor(curBox / boxesPerRow) * boxHeight;
 
       var getTilesGid = function (pos) {
-        return visibleTiles.map(function (data) {
-          return data[pos];
+        return visibleLayers.map(function (l) {
+          return {gid: l.data[pos], z: l.z};
         });
       };
 
-      var tileGids, tileGid, tile;
+      var tiles, tile, tileGid;
       for (var row = tileRow; row < tileRow + boxHeight && row < tiledMap.height && row >= 0; row++) {
         for (var column = tileColumn; column < tileColumn + boxWidth && column < tiledMap.width && column >= 0; column++) {
-          tileGids = getTilesGid(column + row * tiledMap.width);
+          tiles = getTilesGid(column + row * tiledMap.width);
 
-          for (var i = 0; i < tileGids.length; i++) {
+          for (var i = 0; i < tiles.length; i++) {
             tile = undefined;
-            tileGid = tileGids[i];
+            tileGid = tiles[i].gid;
 
             if (tileGid) {
               if (!tileStore[tileGid])
@@ -128,6 +128,7 @@
                 tile.visible = true;
               } else {
                 tile = Crafty.e('Tile, Tile' + tileGid).setGid(tileGid);
+                tile.z = tiles[i].z;
               }
 
               tile.attr({

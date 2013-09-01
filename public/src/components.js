@@ -79,6 +79,8 @@ Crafty.c('PlayerCharacter', {
     .fourway(2)
     .collision(new Crafty.polygon([0, 50], [50, 50], [50, 100], [0, 100]));
 
+    //this._globalZ = 1000;
+
     new PlayerName(this.x, this.y);
 
     this.bind('Moved', function (from) {
@@ -149,7 +151,7 @@ Crafty.c('TiledMap', {
     this._setCurrentLevel();
 
     this._loadTilesets();
-    // this._createTileEntities();
+    this._defineLayersZ();
     this._createObjectEntities();
   },
 
@@ -189,34 +191,18 @@ Crafty.c('TiledMap', {
     return tilesMap;
   },
 
-  //_createTileEntities: function () {
-  //  var self = this;
-
-  //  self._tiled.layers.filter(function (layer) {
-  //    return layer.type === 'tilelayer' && layer.visible;
-  //  }).forEach(function (layer, layerPosition) {
-  //    layer.data.forEach(function (tileGid, i) {
-  //      if (tileGid === 0) return;
-
-  //      var column = i % layer.width;
-  //      var row = Math.floor((i / layer.width));
-
-  //      Crafty.e('Tile, Tile' + tileGid)
-  //      .attr({
-  //        x: column * self._tiled.tilewidth,
-  //        y: row * self._tiled.tileheight,
-  //        z: layerPosition
-  //      });
-  //    });
-  //  });
-  //},
+  _defineLayersZ: function () {
+    this._tiled.layers.forEach(function (layer, i) {
+      layer.z = i;
+    });
+  },
 
   _createObjectEntities: function () {
     var self = this;
 
     self._tiled.layers.filter(function (layer) {
       return layer.type === 'objectgroup';
-    }).forEach(function (layer, layerPosition) {
+    }).forEach(function (layer) {
       layer.objects.forEach(function (object) {
         if (object.type === 'Player') {
           var x = Math.floor(object.x / Config.currentLevel.tilewidth);
@@ -227,7 +213,7 @@ Crafty.c('TiledMap', {
           } catch (e) { /*don't care */ }
 
           var p = new Player(x, y);
-          p.attr({z: layerPosition});
+          p.attr({z: layer.z});
         }
         var objectType = (object.type || 'Block');
         Crafty.e('2D, Canvas, Collision, ' + objectType)
@@ -236,7 +222,7 @@ Crafty.c('TiledMap', {
           y: object.y,
           w: object.width,
           h: object.height,
-          z: layerPosition
+          z: layer.z
         })
         .collision();
       });
