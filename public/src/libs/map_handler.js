@@ -113,7 +113,7 @@
       var tileGids, tileGid, tile;
       for (var row = tileRow; row < tileRow + boxHeight && row < tiledMap.height && row >= 0; row++) {
         for (var column = tileColumn; column < tileColumn + boxWidth && column < tiledMap.width && column >= 0; column++) {
-          tileGids = getTilesGid(column + row * screenWidth);
+          tileGids = getTilesGid(column + row * tiledMap.width);
 
           for (var i = 0; i < tileGids.length; i++) {
             tile = undefined;
@@ -130,7 +130,6 @@
                 tile = Crafty.e('Tile, Tile' + tileGid).setGid(tileGid);
               }
 
-              console.log(column, row);
               tile.attr({
                 x: column * tileSizeInPx.width,
                 y: row * tileSizeInPx.height
