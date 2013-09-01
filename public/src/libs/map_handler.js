@@ -19,8 +19,8 @@
     var screenWidth = Math.ceil(Config.viewportWidth / tileSizeInPx.width);
     var screenHeight = Math.ceil(Config.viewportHeight / tileSizeInPx.height);
 
-    var boxWidth = Math.ceil(screenWidth / 2);
-    var boxHeight = Math.ceil(screenHeight / 2);
+    var boxWidth = Math.ceil(screenWidth / 3);
+    var boxHeight = Math.ceil(screenHeight / 3);
     var boxesPerRow = Math.ceil(Config.width() / boxWidth);
 
     this.currentBoxLinearPosition = -1;
@@ -46,28 +46,28 @@
 
       // clear surrounding out-of-frame boxes
       row = -3;
-      for (column = -3; column <= 2; column++) {
+      for (column = -3; column <= 3; column++) {
         clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
       column = -3;
-      for (row = -1; row <= 2; row++) {
+      for (row = -2; row <= 2; row++) {
         clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
-      column = 2;
-      for (row = -1; row <= 2; row++) {
+      column = 3;
+      for (row = -2; row <= 2; row++) {
         clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
-      row = 2;
-      for (column = -3; column <= 2; column++) {
+      row = 3;
+      for (column = -3; column <= 3; column++) {
         clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
       // fill in surrounding boxes
-      for (row = -2; row <= 1; row++) {
-        for (column = -2; column <= 1; column++) {
+      for (row = -2; row <= 2; row++) {
+        for (column = -2; column <= 2; column++) {
           loadBox(boxLinearPosition + row * boxesPerRow + column);
         }
       }
