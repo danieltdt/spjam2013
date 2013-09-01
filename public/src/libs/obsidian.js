@@ -46,6 +46,8 @@
       if (currentWorld.song)
         Crafty.audio.play(currentWorld.song, -1, 1.0);
 
+      Crafty.viewport.follow(Crafty('PlayerCharacter'), 0, 0);
+
       callback();
     });
   }
