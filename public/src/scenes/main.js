@@ -8,6 +8,7 @@
       Crafty.e('2D, DOM, TiledMap').setTiledMap(tiled);
 
       Crafty.viewport.centerOn(Crafty('PlayerCharacter'), 0);
+      new Bucket(10,10);
     });
   });
 })(Crafty, jQuery);

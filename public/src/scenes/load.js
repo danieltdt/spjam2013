@@ -26,7 +26,7 @@
         //  to remind us that they simply cause the entity
         //  to be drawn with a certain sprite
         Crafty.sprite(50, '/web/images/objects.png', {
-          spr_table:  [2, 0]
+          spr_bucket:  [0, 0]
         });
 
         // Define the PC's sprite to be the first sprite in the third row of the

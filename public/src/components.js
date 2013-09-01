@@ -35,16 +35,27 @@ Crafty.c('Actor', {
   },
 });
 
+Crafty.c('Bucket', {
+  init: function() {
+    this.requires('Actor, Collision, Block, spr_bucket')
+    .collision();
+  },
+});
+
 Crafty.c('PlayerCharacter', {
   init: function () {
     this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')
-    .animate('walk_left', 0, 2, 1)
-    .animate('walk_right', 0, 3, 1)
-    .animate('walk_up', 0, 1, 1)
-    .animate('walk_down', 0, 0, 1)
+    .animate('walk_left', 0, 2, 4)
+    .animate('walk_right', 0, 3, 4)
+    .animate('walk_up', 0, 1, 4)
+    .animate('walk_down', 0, 0, 4)
     .fourway(2)
-    .collision(new Crafty.polygon([5, 50], [45, 50], [45, 95], [5, 95]))
-    .bind('Moved', function (from) {
+    .collision(new Crafty.polygon([5, 50], [45, 50], [45, 95], [5, 95]));
+    //new PlayerName(this.x, this.y);
+
+    this.bind('Moved', function (from) {
+      //moves name together
+      //Crafty('PlayerName').trigger('Move');
       // stop moving when hit obstacle
       if (this.hit('Block')) {
         this.attr({x: from.x, y: from.y});
@@ -69,6 +80,24 @@ Crafty.c('PlayerCharacter', {
 
 Crafty.c('Tile', {
   init: function () {
+
+  }
+});
+
+Crafty.c('PlayerName', {
+  init: function() {
+    this.requires("2D, Grid, DOM, Text")
+    .attr({
+      w: 50,
+      h: 20
+    })
+    .text("Neusa P. Carvalho")
+    .css({ "text-align": "center" });
+    
+    this.bind('Move', function() {
+      this.attr({ x: Crafty('PlayerCharacter').x,
+                y: Crafty('PlayerCharacter').y - 30 });
+    });
   }
 });
 
@@ -164,7 +193,8 @@ Crafty.c('TiledMap', {
           w: object.width,
           h: object.height,
           z: layerPosition
-        });
+        })
+        .collision();
       });
     });
   },
