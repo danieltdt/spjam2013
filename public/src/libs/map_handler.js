@@ -14,55 +14,61 @@
 
     var boxStore = {};  // tiles within a map segment
     var tileStore = {}; // cache of re-usable tiles
-    var tileSize = {x: tiledMap.tilewidth, y: tiledMap.tileheight};
+    var tileSizeInPx = {width: tiledMap.tilewidth, height: tiledMap.tileheight};
 
-    var screenTilesX = Math.ceil(Config.viewportWidth / tileSize.x);
-    var screenTilesY = Math.ceil(Config.viewportHeight / tileSize.y);
+    var screenWidth = Math.ceil(Config.viewportWidth / tileSizeInPx.width);
+    var screenHeight = Math.ceil(Config.viewportHeight / tileSizeInPx.height);
 
-    var boxW = Math.ceil(screenTilesX / 3);
-    var boxH = Math.ceil(screenTilesY / 3);
+    var boxWidth = Math.ceil(screenWidth / 2);
+    var boxHeight = Math.ceil(screenHeight / 2);
+    var boxesPerRow = Math.ceil(Config.width() / boxWidth);
 
-    var _oldBox = -1;
+    this.currentBoxLinearPosition = -1;
 
     self.changeLoc = function (newX, newY) {
-      var boxX = Math.floor(newX / (tileSize.x * boxW));
-      var boxY = Math.floor(newY / (tileSize.y * boxH));
+      var boxSizeInPx = {
+        x: (tileSizeInPx.width * boxWidth),
+        y: (tileSizeInPx.height * boxHeight)
+      };
 
-      var curBox = boxX + boxY * Math.ceil(Config.width() / boxW);
-      if (curBox !== _oldBox) {
-        changeBox(curBox);
+      // Box changed?
+      var boxColumn = Math.floor(newX / boxSizeInPx.x);
+      var boxRow = Math.floor(newY / boxSizeInPx.y);
+      var newBoxLinearPosition = boxColumn + boxRow * boxesPerRow;
+      if (newBoxLinearPosition !== this.currentBoxLinearPosition) {
+        this.currentBoxLinearPosition = newBoxLinearPosition;
+        changeBox(newBoxLinearPosition);
       }
     };
 
-    var changeBox = function (curBox) {
-      var x, y;
-      _oldBox = curBox;
+    var changeBox = function (boxLinearPosition) {
+      var column, row;
 
       // clear surrounding out-of-frame boxes
-      y = -3;
-      for (x = -3; x <= 3; x++) {
-        clearBox(curBox + y * Math.ceil(Config.width() / boxW) + x);
+      row = -3;
+      for (column = -3; column <= 2; column++) {
+        clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
-      x = -3;
-      for (y = -2; y <= 2; y++) {
-        clearBox(curBox + y * Math.ceil(Config.width() / boxW) + x);
+      column = -3;
+      for (row = -1; row <= 2; row++) {
+        clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
-      x = 3;
-      for (y = -2; y <= 2;y++) {
-        clearBox(curBox + y * Math.ceil(Config.width() / boxW) + x);
+      column = 2;
+      for (row = -1; row <= 2; row++) {
+        clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
-      y = 3;
-      for (x = -3; x <= 3; x++) {
-        clearBox(curBox + y * Math.ceil(Config.width() / boxW) + x);
+      row = 2;
+      for (column = -3; column <= 2; column++) {
+        clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
       // fill in surrounding boxes
-      for (y = -2; y <= 2; y++) {
-        for (x = -2; x <= 2; x++) {
-          loadBox(curBox + y * Math.ceil(Config.width() / boxW) + x);
+      for (row = -2; row <= 1; row++) {
+        for (column = -2; column <= 1; column++) {
+          loadBox(boxLinearPosition + row * boxesPerRow + column);
         }
       }
     };
@@ -95,41 +101,43 @@
 
       if (boxStore[curBox].loaded) return; // already loaded
 
-      var newX = (curBox % Math.ceil(Config.width() / boxW)) * boxW;
-      var newY = Math.floor(curBox / Math.ceil(Config.width() / boxW)) * boxH;
+      var tileColumn = (curBox % boxesPerRow) * boxWidth;
+      var tileRow = Math.floor(curBox / boxesPerRow) * boxHeight;
+
       var getTilesGid = function (pos) {
         return visibleTiles.map(function (data) {
           return data[pos];
         });
       };
 
-      var tileGids, tile, tileGid;
-      for (var y = newY; y < newY + boxH && y < Config.height() && y >= 0; y++) {
-        for (var x = newX; x < newX + boxW && x < Config.width() && x >= 0; x++) {
-          tileGids = getTilesGid(x + y * Config.width());
+      var tileGids, tileGid, tile;
+      for (var row = tileRow; row < tileRow + boxHeight && row < tiledMap.height && row >= 0; row++) {
+        for (var column = tileColumn; column < tileColumn + boxWidth && column < tiledMap.width && column >= 0; column++) {
+          tileGids = getTilesGid(column + row * screenWidth);
 
           for (var i = 0; i < tileGids.length; i++) {
             tile = undefined;
             tileGid = tileGids[i];
-            if (tileGid === 0) return;
 
-            if (!tileStore[tileGid])
-              tileStore[tileGid] = [];
+            if (tileGid) {
+              if (!tileStore[tileGid])
+                tileStore[tileGid] = [];
 
-            if (tileStore[tileGid].length) {
-              tile = tileStore[tileGid].pop();
-              tile.visible = true;
-            } else {
-              tile = Crafty.e('Tile, Tile' + tileGid);
-              tile.gid = tileGid;
+              if (tileStore[tileGid].length) {
+                tile = tileStore[tileGid].pop();
+                tile.visible = true;
+              } else {
+                tile = Crafty.e('Tile, Tile' + tileGid);
+                tile.setGid(tileGid);
+              }
+
+              tile.attr({
+                x: column * tileSizeInPx.x,
+                y: row * tileSizeInPx.y
+              });
+
+              boxStore[curBox].tiles.push(tile);
             }
-
-            tile.attr({
-              x: x * tileSize.x,
-              y: y * tileSize.y
-            });
-
-            boxStore[curBox].tiles.push(tile);
           }
         }
       }

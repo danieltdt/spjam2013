@@ -113,6 +113,11 @@ Crafty.c('PlayerName', {
 Crafty.c('Tile', {
   init: function () {
     this.requires('2D, Canvas');
+  },
+  setGid: function (gid) {
+    this.gid = gid;
+
+    return this;
   }
 });
 
