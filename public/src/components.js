@@ -78,12 +78,6 @@ Crafty.c('PlayerCharacter', {
   }
 });
 
-Crafty.c('Tile', {
-  init: function () {
-
-  }
-});
-
 Crafty.c('PlayerName', {
   init: function() {
     this.requires("2D, Grid, DOM, Text")
@@ -93,11 +87,18 @@ Crafty.c('PlayerName', {
     })
     .text("Neusa P. Carvalho")
     .css({ "text-align": "center" });
-    
+
     this.bind('Move', function() {
       this.attr({ x: Crafty('PlayerCharacter').x,
                 y: Crafty('PlayerCharacter').y - 30 });
     });
+  }
+});
+
+
+Crafty.c('Tile', {
+  init: function () {
+    this.requires('2D, DOM');
   }
 });
 
@@ -151,13 +152,15 @@ Crafty.c('TiledMap', {
     var self = this;
 
     self._tiled.layers.filter(function (layer) {
-      return layer.type === 'tilelayer';
+      return layer.type === 'tilelayer' && layer.visible;
     }).forEach(function (layer, layerPosition) {
       layer.data.forEach(function (tileGid, i) {
+        if (tileGid === 0) return;
+
         var column = i % layer.width;
         var row = Math.floor((i / layer.width));
 
-        Crafty.e('2D, Canvas, Tile' + tileGid)
+        Crafty.e('Tile, Tile' + tileGid)
         .attr({
           x: column * self._tiled.tilewidth,
           y: row * self._tiled.tileheight,

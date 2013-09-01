@@ -3,21 +3,22 @@
 
   Crafty.scene('Load', function() {
     Crafty.background('#FFF');
-    Crafty.e("2D, DOM, Text")
+    Crafty.e('2D, DOM, Text')
       .attr({
         w: Config.viewportWidth,
         h: 20,
         x: 0,
         y: Config.viewportHeight / 2
       })
-      .text("Loading...")
-      .css({ "text-align": "center" });
+      .text('Loading...')
+      .css({'text-align': 'center'});
 
     Crafty.load([
-        '/web/images/neusa.png',
-        '/web/images/objects.png',
-        '/web/images/village.jpg'
-    ], function(){
+      '/web/images/neusa.png',
+      '/web/images/objects.png',
+      '/web/images/village.jpg',
+      '/web/images/village_bg.png'
+    ], function () {
         // Once the images are loaded...
 
         // Define the individual sprites in the image
@@ -37,7 +38,7 @@
 
         // Pointless setTimeout
         setTimeout(function () {
-          Crafty.scene("Main");
+          Crafty.scene('Main');
         }, 2000);
       });
 
