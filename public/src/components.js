@@ -79,7 +79,7 @@ Crafty.c('PlayerCharacter', {
     .fourway(2)
     .collision(new Crafty.polygon([8, 50], [45, 50], [45, 100], [8, 100]));
 
-    //this._globalZ = 1000;
+    this._globalZ = -1;
 
     new PlayerName(this.x, this.y);
 
