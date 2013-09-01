@@ -42,6 +42,16 @@ Crafty.c('Bucket', {
   },
 });
 
+Crafty.c('Door', {
+  init: function() {
+    this.requires('Actor, Collision')
+    .collision()
+    .onHit('PlayerCharacter', function() {
+      Crafty.scene('House');
+    });
+  },
+});
+
 Crafty.c('PlayerCharacter', {
   init: function () {
     this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')
@@ -51,11 +61,11 @@ Crafty.c('PlayerCharacter', {
     .animate('walk_down', 0, 0, 4)
     .fourway(2)
     .collision(new Crafty.polygon([5, 50], [45, 50], [45, 95], [5, 95]));
-    //new PlayerName(this.x, this.y);
+    new PlayerName(this.x, this.y);
 
     this.bind('Moved', function (from) {
       //moves name together
-      //Crafty('PlayerName').trigger('Move');
+      Crafty('PlayerName').trigger('Move');
       // stop moving when hit obstacle
       if (this.hit('Block')) {
         this.attr({x: from.x, y: from.y});
