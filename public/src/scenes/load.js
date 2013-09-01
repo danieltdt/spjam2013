@@ -15,8 +15,8 @@
 
     Crafty.load([
       '/web/images/neusa.png',
-      '/web/images/objects.png',
-      '/web/images/village.jpg',
+      '/web/images/objetos3.png',
+      '/web/images/tiles sheet.jpg',
       '/web/images/village_bg.png'
     ], function () {
         // Once the images are loaded...
@@ -26,7 +26,7 @@
         // These components' names are prefixed with "spr_"
         //  to remind us that they simply cause the entity
         //  to be drawn with a certain sprite
-        Crafty.sprite(50, '/web/images/objects.png', {
+        Crafty.sprite(50, '/web/images/objetos3.png', {
           spr_bucket:  [0, 0]
         });
 
