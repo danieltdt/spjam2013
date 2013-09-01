@@ -44,12 +44,16 @@ Crafty.c('Bucket', {
 
 Crafty.c('Door', {
   init: function() {
-    this.requires('Actor, Collision')
+    var self = this;
+    self.requires('Actor, Collision')
     .collision()
     .onHit('PlayerCharacter', function() {
-      Crafty.scene('House');
+      Crafty.scene(self._destination);
     });
   },
+  setDestination: function(dest) {
+    this._destination = dest;
+  }
 });
 
 Crafty.c('PlayerCharacter', {
@@ -108,7 +112,7 @@ Crafty.c('PlayerName', {
 
 Crafty.c('Tile', {
   init: function () {
-    this.requires('2D, DOM');
+    this.requires('2D, Canvas');
   }
 });
 

@@ -10,7 +10,7 @@
       Crafty.e('TiledMap').setTiledMap(tiled);
 
       new Bucket(10, 10);
-      new Door(36,11);
+      new Door(36,10).setDestination('House');
 
       //Crafty.viewport.centerOn(Crafty('PlayerCharacter'), 0);
       Crafty.viewport.follow(Crafty('PlayerCharacter'), 0, 0);

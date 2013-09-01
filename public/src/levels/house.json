@@ -17,7 +17,7 @@
          "name":"collision",
          "objects":[
                 {
-                 "height":297,
+                 "height":300,
                  "name":"",
                  "properties":
                     {
@@ -26,12 +26,12 @@
                  "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":23,
-                 "x":1,
-                 "y":1
+                 "width":50,
+                 "x":-26,
+                 "y":-1
                 }, 
                 {
-                 "height":18,
+                 "height":50,
                  "name":"",
                  "properties":
                     {
@@ -40,12 +40,12 @@
                  "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":352,
-                 "x":25,
-                 "y":1
+                 "width":350,
+                 "x":26,
+                 "y":-21
                 }, 
                 {
-                 "height":297,
+                 "height":300,
                  "name":"",
                  "properties":
                     {
@@ -54,12 +54,12 @@
                  "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":23,
+                 "width":50,
                  "x":379,
                  "y":1
                 }, 
                 {
-                 "height":24,
+                 "height":50,
                  "name":"",
                  "properties":
                     {
@@ -68,12 +68,12 @@
                  "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":151,
+                 "width":150,
                  "x":26,
                  "y":275
                 }, 
                 {
-                 "height":23,
+                 "height":50,
                  "name":"",
                  "properties":
                     {
@@ -82,7 +82,7 @@
                  "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":132,
+                 "width":150,
                  "x":246,
                  "y":276
                 }, 
@@ -111,8 +111,8 @@
                  "type":"Player",
                  "visible":true,
                  "width":50,
-                 "x":200,
-                 "y":200
+                 "x":185,
+                 "y":192
                 }],
          "opacity":1,
          "type":"objectgroup",
