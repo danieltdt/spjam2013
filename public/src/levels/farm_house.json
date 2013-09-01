@@ -1,150 +1,60 @@
-{ "height":6,
+{ "height":7,
  "layers":[
         {
-         "data":[12, 12, 12, 12, 12, 12, 12, 12, 20, 20, 20, 20, 20, 20, 20, 20, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-         "height":6,
+         "data":[134, 12, 12, 12, 12, 12, 12, 12, 12, 131, 142, 20, 20, 20, 20, 20, 20, 20, 20, 139, 142, 25, 25, 25, 25, 25, 25, 25, 25, 139, 142, 25, 25, 25, 25, 25, 25, 25, 25, 139, 142, 25, 25, 25, 25, 25, 25, 25, 25, 139, 142, 25, 25, 25, 25, 25, 25, 25, 25, 139, 164, 132, 132, 132, 25, 25, 132, 132, 132, 163],
+         "height":7,
          "name":"back",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":8,
+         "width":10,
          "x":0,
          "y":0
-        },
+        }, 
         {
-         "height":6,
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 0, 0, 0, 0, 0, 2, 0, 0, 0, 114, 0, 0, 0, 69, 70, 0, 0, 0, 0, 0, 0, 0, 0, 77, 78, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":7,
+         "name":"objects",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":10,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "height":7,
          "name":"collision",
          "objects":[
                 {
-                 "height":297,
+                 "height":98,
                  "name":"",
                  "properties":
                     {
 
                     },
+                 "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":23,
-                 "x":1,
+                 "width":406,
+                 "x":47,
                  "y":1
-                },
+                }, 
                 {
-                 "height":95,
+                 "height":348,
                  "name":"",
                  "properties":
                     {
 
                     },
+                 "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":355,
-                 "x":25,
-                 "y":1
-                },
-                {
-                 "height":297,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"Block",
-                 "visible":true,
-                 "width":23,
-                 "x":379,
-                 "y":1
-                },
-                {
-                 "height":24,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"Block",
-                 "visible":true,
-                 "width":151,
-                 "x":26,
-                 "y":275
-                },
-                {
-                 "height":23,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"Block",
-                 "visible":true,
-                 "width":132,
-                 "x":246,
-                 "y":276
-                },
-                {
-                 "height":29,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"Event",
-                 "visible":true,
-                 "width":67,
-                 "x":179,
-                 "y":269
-                },
-                {
-                 "height":49,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"Block",
-                 "visible":true,
-                 "width":45,
-                 "x":52,
-                 "y":98
-                },
-                {
-                 "height":74,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"Block",
-                 "visible":true,
-                 "width":94,
-                 "x":252,
-                 "y":172
-                },
-                {
-                 "height":41,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"Block",
-                 "visible":true,
-                 "width":31,
-                 "x":347,
-                 "y":205
-                },
-                {
-                 "height":41,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "type":"Event",
-                 "visible":true,
-                 "width":27,
-                 "x":309,
-                 "y":106
-                },
+                 "width":46,
+                 "x":453,
+                 "y":3
+                }, 
                 {
                  "height":50,
                  "name":"",
@@ -152,27 +62,129 @@
                     {
 
                     },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":153,
+                 "x":301,
+                 "y":301
+                }, 
+                {
+                 "height":30,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Event",
+                 "visible":true,
+                 "width":101,
+                 "x":198,
+                 "y":320
+                }, 
+                {
+                 "height":49,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":45,
+                 "x":100,
+                 "y":100
+                }, 
+                {
+                 "height":74,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":94,
+                 "x":302,
+                 "y":170
+                }, 
+                {
+                 "height":51,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":41,
+                 "x":406,
+                 "y":204
+                }, 
+                {
+                 "height":41,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Event",
+                 "visible":true,
+                 "width":27,
+                 "x":411,
+                 "y":105
+                }, 
+                {
+                 "height":50,
+                 "name":"player",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
                  "type":"Player",
                  "visible":true,
                  "width":50,
-                 "x":150,
-                 "y":150
+                 "x":216,
+                 "y":234
+                }, 
+                {
+                 "height":50,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":153,
+                 "x":46,
+                 "y":300
+                }, 
+                {
+                 "height":348,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":46,
+                 "x":1,
+                 "y":1
                 }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":8,
-         "x":0,
-         "y":0
-        },
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 0, 0, 0, 0, 0, 0, 0, 114, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 69, 70, 0, 0, 0, 0, 0, 0, 77, 78, 62, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":6,
-         "name":"objects",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":8,
+         "width":10,
          "x":0,
          "y":0
         }],
@@ -197,7 +209,7 @@
          "spacing":0,
          "tileheight":50,
          "tilewidth":50
-        },
+        }, 
         {
          "firstgid":33,
          "image":"/web/images/objetos.png",
@@ -212,7 +224,7 @@
          "spacing":0,
          "tileheight":50,
          "tilewidth":50
-        },
+        }, 
         {
          "firstgid":113,
          "image":"/web/images/cama.png",
@@ -227,8 +239,23 @@
          "spacing":0,
          "tileheight":50,
          "tilewidth":50
+        }, 
+        {
+         "firstgid":115,
+         "image":"/web/images/cantos_de_parede_porta_inn.png",
+         "imageheight":400,
+         "imagewidth":400,
+         "margin":0,
+         "name":"cantos_de_parede_porta_inn",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":50,
+         "tilewidth":50
         }],
  "tilewidth":50,
  "version":1,
- "width":8
+ "width":10
 }
