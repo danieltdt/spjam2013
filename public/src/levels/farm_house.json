@@ -10,9 +10,8 @@
          "width":8,
          "x":0,
          "y":0
-        }, 
+        },
         {
-         "draworder":"topdown",
          "height":6,
          "name":"collision",
          "objects":[
@@ -23,13 +22,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Block",
                  "visible":true,
                  "width":23,
                  "x":1,
                  "y":1
-                }, 
+                },
                 {
                  "height":95,
                  "name":"",
@@ -37,13 +35,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Block",
                  "visible":true,
                  "width":355,
                  "x":25,
                  "y":1
-                }, 
+                },
                 {
                  "height":297,
                  "name":"",
@@ -51,13 +48,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Block",
                  "visible":true,
                  "width":23,
                  "x":379,
                  "y":1
-                }, 
+                },
                 {
                  "height":24,
                  "name":"",
@@ -65,13 +61,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Block",
                  "visible":true,
                  "width":151,
                  "x":26,
                  "y":275
-                }, 
+                },
                 {
                  "height":23,
                  "name":"",
@@ -79,13 +74,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Block",
                  "visible":true,
                  "width":132,
                  "x":246,
                  "y":276
-                }, 
+                },
                 {
                  "height":29,
                  "name":"",
@@ -93,13 +87,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Event",
                  "visible":true,
                  "width":67,
                  "x":179,
                  "y":269
-                }, 
+                },
                 {
                  "height":49,
                  "name":"",
@@ -107,13 +100,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Block",
                  "visible":true,
                  "width":45,
                  "x":52,
                  "y":98
-                }, 
+                },
                 {
                  "height":74,
                  "name":"",
@@ -121,13 +113,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Block",
                  "visible":true,
                  "width":94,
                  "x":252,
                  "y":172
-                }, 
+                },
                 {
                  "height":41,
                  "name":"",
@@ -135,13 +126,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Block",
                  "visible":true,
                  "width":31,
                  "x":347,
                  "y":205
-                }, 
+                },
                 {
                  "height":41,
                  "name":"",
@@ -149,13 +139,12 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Event",
                  "visible":true,
                  "width":27,
                  "x":309,
                  "y":106
-                }, 
+                },
                 {
                  "height":50,
                  "name":"",
@@ -163,7 +152,6 @@
                     {
 
                     },
-                 "rotation":0,
                  "type":"Player",
                  "visible":true,
                  "width":50,
@@ -176,7 +164,7 @@
          "width":8,
          "x":0,
          "y":0
-        }, 
+        },
         {
          "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 0, 0, 0, 0, 0, 0, 0, 114, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 69, 70, 0, 0, 0, 0, 0, 0, 77, 78, 62, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":6,
@@ -209,7 +197,7 @@
          "spacing":0,
          "tileheight":50,
          "tilewidth":50
-        }, 
+        },
         {
          "firstgid":33,
          "image":"/web/images/objetos.png",
@@ -224,7 +212,7 @@
          "spacing":0,
          "tileheight":50,
          "tilewidth":50
-        }, 
+        },
         {
          "firstgid":113,
          "image":"/web/images/cama.png",
