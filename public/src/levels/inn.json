@@ -1,9 +1,20 @@
 { "height":10,
  "layers":[
         {
-         "data":[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26, 26],
+         "data":[54, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 51, 62, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 59, 62, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 59, 62, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 59, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 62, 11, 11, 11, 11, 11, 11, 11, 35, 11, 11, 11, 11, 11, 11, 59, 62, 19, 19, 19, 19, 19, 19, 19, 43, 19, 19, 19, 19, 19, 19, 59, 62, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 59, 62, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 59, 52, 52, 52, 52, 52, 52, 52, 27, 27, 52, 52, 52, 52, 52, 52, 52],
          "height":10,
          "name":"back",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":16,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 169, 170, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 171, 172, 0, 0, 0, 42, 0, 0, 0, 0, 118, 0, 118, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":10,
+         "name":"counter",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -17,7 +28,7 @@
          "name":"collision",
          "objects":[
                 {
-                 "height":98,
+                 "height":95,
                  "name":"",
                  "properties":
                     {
@@ -26,12 +37,12 @@
                  "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":797,
-                 "x":1,
-                 "y":1
+                 "width":708,
+                 "x":46,
+                 "y":2
                 }, 
                 {
-                 "height":402,
+                 "height":497,
                  "name":"",
                  "properties":
                     {
@@ -40,12 +51,12 @@
                  "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":31,
-                 "x":-1,
-                 "y":101
+                 "width":44,
+                 "x":2,
+                 "y":2
                 }, 
                 {
-                 "height":398,
+                 "height":450,
                  "name":"",
                  "properties":
                     {
@@ -54,9 +65,37 @@
                  "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":32,
-                 "x":766,
-                 "y":101
+                 "width":45,
+                 "x":753,
+                 "y":2
+                }, 
+                {
+                 "height":44,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":301,
+                 "x":46,
+                 "y":455
+                }, 
+                {
+                 "height":46,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":347,
+                 "x":451,
+                 "y":452
                 }, 
                 {
                  "height":27,
@@ -66,35 +105,7 @@
 
                     },
                  "rotation":0,
-                 "type":"Block",
-                 "visible":true,
-                 "width":317,
-                 "x":27,
-                 "y":473
-                }, 
-                {
-                 "height":27,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"Block",
-                 "visible":true,
-                 "width":317,
-                 "x":449,
-                 "y":471
-                }, 
-                {
-                 "height":27,
-                 "name":"",
-                 "properties":
-                    {
-
-                    },
-                 "rotation":0,
-                 "type":"",
+                 "type":"Event",
                  "visible":true,
                  "width":99,
                  "x":347,
@@ -111,8 +122,8 @@
                  "type":"Block",
                  "visible":true,
                  "width":53,
-                 "x":48,
-                 "y":99
+                 "x":47,
+                 "y":98
                 }, 
                 {
                  "height":100,
@@ -138,9 +149,9 @@
                  "rotation":0,
                  "type":"Block",
                  "visible":true,
-                 "width":53,
-                 "x":297,
-                 "y":99
+                 "width":38,
+                 "x":307,
+                 "y":302
                 }, 
                 {
                  "height":100,
@@ -158,7 +169,7 @@
                 }, 
                 {
                  "height":50,
-                 "name":"player",
+                 "name":"",
                  "properties":
                     {
 
@@ -168,7 +179,77 @@
                  "visible":true,
                  "width":50,
                  "x":400,
-                 "y":350
+                 "y":400
+                }, 
+                {
+                 "height":100,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":53,
+                 "x":350,
+                 "y":100
+                }, 
+                {
+                 "height":92,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":352,
+                 "x":48,
+                 "y":254
+                }, 
+                {
+                 "height":95,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":304,
+                 "x":452,
+                 "y":254
+                }, 
+                {
+                 "height":53,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":100,
+                 "x":48,
+                 "y":348
+                }, 
+                {
+                 "height":100,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Block",
+                 "visible":true,
+                 "width":38,
+                 "x":556,
+                 "y":356
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -178,9 +259,20 @@
          "y":0
         }, 
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 0, 0, 33, 0, 33, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 34, 0, 0, 34, 0, 34, 0, 0, 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 83, 0, 0, 85, 0, 0, 87, 0, 0, 0, 0, 33, 0, 0, 0, 0, 84, 0, 0, 86, 0, 0, 88, 0, 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":10,
          "name":"objects",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":16,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":10,
+         "name":"teto",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -212,11 +304,101 @@
         }, 
         {
          "firstgid":33,
-         "image":"/web/images/cama quebrada.png",
+         "image":"/web/images/cama_quebrada.png",
          "imageheight":100,
          "imagewidth":50,
          "margin":0,
-         "name":"cama quebrada",
+         "name":"camaquebrada",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":50,
+         "tilewidth":50
+        }, 
+        {
+         "firstgid":35,
+         "image":"/web/images/cantos_de_parede_porta_inn.png",
+         "imageheight":300,
+         "imagewidth":400,
+         "margin":0,
+         "name":"cantos_de_parede_porta_inn",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":50,
+         "tilewidth":50
+        }, 
+        {
+         "firstgid":83,
+         "image":"/web/images/cama_ocupada.png",
+         "imageheight":100,
+         "imagewidth":50,
+         "margin":0,
+         "name":"cama_ocupada",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":50,
+         "tilewidth":50
+        }, 
+        {
+         "firstgid":85,
+         "image":"/web/images/cama_ocupada_2.png",
+         "imageheight":100,
+         "imagewidth":50,
+         "margin":0,
+         "name":"cama_ocupada_2",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":50,
+         "tilewidth":50
+        }, 
+        {
+         "firstgid":87,
+         "image":"/web/images/cama_ocupada_3.png",
+         "imageheight":100,
+         "imagewidth":50,
+         "margin":0,
+         "name":"cama_ocupada_3",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":50,
+         "tilewidth":50
+        }, 
+        {
+         "firstgid":89,
+         "image":"/web/images/objetos.png",
+         "imageheight":500,
+         "imagewidth":400,
+         "margin":0,
+         "name":"objetos",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":50,
+         "tilewidth":50
+        }, 
+        {
+         "firstgid":169,
+         "image":"/web/images/estante_3.png",
+         "imageheight":100,
+         "imagewidth":100,
+         "margin":0,
+         "name":"estante_3",
          "properties":
             {
 

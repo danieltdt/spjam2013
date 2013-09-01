@@ -12,6 +12,17 @@
          "y":0
         }, 
         {
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 117, 118, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 114, 0, 0, 119, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 115, 116, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+         "height":9,
+         "name":"objects",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":16,
+         "x":0,
+         "y":0
+        }, 
+        {
          "draworder":"topdown",
          "height":9,
          "name":"collision",
@@ -127,20 +138,23 @@
                  "width":93,
                  "x":355,
                  "y":412
+                }, 
+                {
+                 "height":50,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"Player",
+                 "visible":true,
+                 "width":50,
+                 "x":400,
+                 "y":350
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":true,
-         "width":16,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 117, 118, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 114, 0, 0, 119, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 115, 116, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-         "height":9,
-         "name":"objects",
-         "opacity":1,
-         "type":"tilelayer",
          "visible":true,
          "width":16,
          "x":0,
@@ -181,7 +195,7 @@
         }, 
         {
          "firstgid":33,
-         "image":"/web/images/objetos3.png",
+         "image":"/web/images/objetos.png",
          "imageheight":500,
          "imagewidth":400,
          "margin":0,
@@ -211,11 +225,26 @@
         }, 
         {
          "firstgid":117,
-         "image":"/web/images/estante 2.png",
+         "image":"/web/images/estante_2.png",
          "imageheight":100,
          "imagewidth":100,
          "margin":0,
          "name":"estante 2",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":50,
+         "tilewidth":50
+        }, 
+        {
+         "firstgid":121,
+         "image":"/web/images/estante_3.png",
+         "imageheight":100,
+         "imagewidth":100,
+         "margin":0,
+         "name":"estante 3",
          "properties":
             {
 

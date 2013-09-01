@@ -115,7 +115,7 @@ Crafty.c('PlayerName', {
       w: 50,
       h: 20
     })
-    .text("Neusa P. Carvalho")
+    .text("Neusa P. da Cunha")
     .css({ "text-align": "center" });
 
     this.bind('Move', function() {

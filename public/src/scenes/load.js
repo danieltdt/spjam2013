@@ -40,6 +40,7 @@
       '/web/images/estante.png',
       '/web/images/objetos.png',
       '/web/images/tubarerna.png',
+      '/web/images/wanted_poster.png',
       '/web/images/chars/neusa.png'
     ], function () {
         // Once the images are loaded...
