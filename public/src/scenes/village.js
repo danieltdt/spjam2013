@@ -23,6 +23,7 @@
 
       Crafty.e('ShowFPS');
 
+      Crafty.viewport.clampToEntities = false;
       Crafty.viewport.follow(Crafty('PlayerCharacter'), 0, 0);
     });
   });

@@ -45,29 +45,29 @@
       var column, row;
 
       // clear surrounding out-of-frame boxes
-      row = -3;
-      for (column = -3; column <= 3; column++) {
+      row = -4;
+      for (column = -4; column <= 4; column++) {
         clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
-      column = -3;
-      for (row = -2; row <= 2; row++) {
+      column = -4;
+      for (row = -3; row <= 3; row++) {
         clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
-      column = 3;
-      for (row = -2; row <= 2; row++) {
+      column = 4;
+      for (row = -3; row <= 3; row++) {
         clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
-      row = 3;
-      for (column = -3; column <= 3; column++) {
+      row = 4;
+      for (column = -4; column <= 4; column++) {
         clearBox(boxLinearPosition + row * boxesPerRow + column);
       }
 
       // fill in surrounding boxes
-      for (row = -2; row <= 2; row++) {
-        for (column = -2; column <= 2; column++) {
+      for (row = -3; row <= 3; row++) {
+        for (column = -3; column <= 3; column++) {
           loadBox(boxLinearPosition + row * boxesPerRow + column);
         }
       }
