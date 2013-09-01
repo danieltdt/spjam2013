@@ -88,6 +88,7 @@
       "Crafty": true,
       "Player": true,
       "Table": true,
-      "Config": true
+      "Config": true,
+      "MapHandler": true
     }
 }

@@ -122,7 +122,7 @@ Crafty.c('TiledMap', {
     this._setCurrentLevel();
 
     this._loadTilesets();
-    this._createTileEntities();
+    // this._createTileEntities();
     this._createObjectEntities();
   },
 
@@ -162,27 +162,27 @@ Crafty.c('TiledMap', {
     return tilesMap;
   },
 
-  _createTileEntities: function () {
-    var self = this;
+  //_createTileEntities: function () {
+  //  var self = this;
 
-    self._tiled.layers.filter(function (layer) {
-      return layer.type === 'tilelayer' && layer.visible;
-    }).forEach(function (layer, layerPosition) {
-      layer.data.forEach(function (tileGid, i) {
-        if (tileGid === 0) return;
+  //  self._tiled.layers.filter(function (layer) {
+  //    return layer.type === 'tilelayer' && layer.visible;
+  //  }).forEach(function (layer, layerPosition) {
+  //    layer.data.forEach(function (tileGid, i) {
+  //      if (tileGid === 0) return;
 
-        var column = i % layer.width;
-        var row = Math.floor((i / layer.width));
+  //      var column = i % layer.width;
+  //      var row = Math.floor((i / layer.width));
 
-        Crafty.e('Tile, Tile' + tileGid)
-        .attr({
-          x: column * self._tiled.tilewidth,
-          y: row * self._tiled.tileheight,
-          z: layerPosition
-        });
-      });
-    });
-  },
+  //      Crafty.e('Tile, Tile' + tileGid)
+  //      .attr({
+  //        x: column * self._tiled.tilewidth,
+  //        y: row * self._tiled.tileheight,
+  //        z: layerPosition
+  //      });
+  //    });
+  //  });
+  //},
 
   _createObjectEntities: function () {
     var self = this;
