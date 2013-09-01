@@ -13,6 +13,13 @@
       .text('Loading...')
       .css({'text-align': 'center'});
 
+    Crafty.audio.add({
+      village_song: "/web/audio/village.mp3",
+      apotecarie_song: "/web/audio/apotecarie.mp3",
+      inn_song: "/web/audio/inn.mp3",
+      tubarerna_song: "/web/audio/tubarerna.mp3"
+    });
+
     Crafty.load([
       '/web/images/neusa.png',
       '/web/images/objetos3.png',
@@ -38,7 +45,7 @@
 
         // Pointless setTimeout
         setTimeout(function () {
-          Crafty.scene('Main');
+          Crafty.scene('Village');
         }, 2000);
       });
 

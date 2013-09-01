@@ -1,14 +1,16 @@
 (function (Crafty, $) {
   'use strict';
 
-  Crafty.scene('House', function () {
+  Crafty.scene('Tubarerna', function () {
     $.ajax({
-      url: '/src/levels/house.json'
+      url: '/src/levels/tubarerna.json'
     }).done(function (tiled) {
       Crafty.e('TiledMap').setTiledMap(tiled);
-      
-      new Bucket(2, 2);
-      new Door(4,5).setDestination('Main');
+
+      Crafty.audio.stop();
+      Crafty.audio.play('tubarerna_song', -1);
+
+      new Door(4,5).setDestination('Village');
 
       Crafty.viewport.follow(Crafty('PlayerCharacter'), 0, 0);
     });

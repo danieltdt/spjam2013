@@ -1,7 +1,7 @@
 (function (Crafty, $) {
   'use strict';
 
-  Crafty.scene('Main', function () {
+  Crafty.scene('Village', function () {
     $.ajax({
       url: '/src/levels/village.json'
     }).done(function (tiled) {
@@ -14,8 +14,12 @@
         map.changeLoc(this.x, this.y);
       });
 
-      new Bucket(10, 10);
-      new Door(36,10).setDestination('House');
+      Crafty.audio.stop();
+      Crafty.audio.play('village_song', -1, 1.0);
+
+      new Door(36,10).setDestination('Apotecarie');
+      new Door(21,10).setDestination('Tubarerna');
+      new Door(38,23).setDestination('Inn');
 
       Crafty.e('ShowFPS');
 
