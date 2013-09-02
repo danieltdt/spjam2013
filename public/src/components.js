@@ -61,11 +61,14 @@ Crafty.c('Door', {
     self.requires('Actor, Collision')
     .collision()
     .onHit('PlayerCharacter', function() {
+      self.trigger('DoorHit');
       Crafty.scene(self._destination);
     });
   },
   setDestination: function(dest) {
     this._destination = dest;
+
+    return this;
   }
 });
 
