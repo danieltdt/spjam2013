@@ -2,6 +2,7 @@
 
 var nodeStatic = require('node-static');
 var file = new nodeStatic.Server('./public');
+var port = (process.env.PORT || 3000);
 
 require('http').createServer(function (req, res) {
   console.info('%s - %s', req.method, req.url);
@@ -9,6 +10,6 @@ require('http').createServer(function (req, res) {
   req.addListener('end', function () {
     file.serve(req, res);
   }).resume();
-}).listen(3000, function () {
-  console.log('Listening at 3000...');
+}).listen(port, function () {
+  console.log('Listening at 0.0.0.0:' + port + '...');
 });
