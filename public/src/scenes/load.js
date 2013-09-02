@@ -41,6 +41,7 @@
       '/web/images/objetos.png',
       '/web/images/tubarerna.png',
       '/web/images/wanted_poster.png',
+      '/web/images/dialog_box.png',
       '/web/images/chars/neusa.png',
       '/web/images/chars/hero.png'
     ], function () {

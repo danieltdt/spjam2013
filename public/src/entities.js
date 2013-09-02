@@ -21,3 +21,11 @@ function Bucket(x,y) {
 function Door(x,y) {
   return Crafty.e('Door').at(x,y);
 }
+
+function DialogBox() {
+  return Crafty.e('DialogBox');
+}
+
+function DialogText(text) {
+  return Crafty.e('DialogBox').setText(text);
+}

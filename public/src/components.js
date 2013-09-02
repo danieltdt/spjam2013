@@ -79,7 +79,7 @@ Crafty.c('PlayerCharacter', {
     .animate('walk_right', 0, 3, 4)
     .animate('walk_up', 0, 1, 4)
     .animate('walk_down', 0, 0, 4)
-    .fourway(2)
+    .fourway(6)
     .collision(new Crafty.polygon([8, 50], [45, 50], [45, 100], [8, 100]));
 
     this._globalZ = -1;
@@ -91,10 +91,7 @@ Crafty.c('PlayerCharacter', {
       if (this.hit('Block')) {
         this.x = from.x;
         this.y = from.y;
-      } else {
-        //moves name together
-        Crafty('PlayerName').trigger('Move');
-      }
+      } 
     });
 
     var animationSpeed = 12;
@@ -127,11 +124,6 @@ Crafty.c('HeroCharacter', {
     
     new HeroName(this.x, this.y);
 
-    this.bind('Moved', function (from) {
-      //moves name together
-      Crafty('HeroName').trigger('Move');
-    });
-
     var animationSpeed = 12;
     this.bind('NewDirection', function (data) {
       this.stop();
@@ -148,20 +140,48 @@ Crafty.c('HeroCharacter', {
   }
 });
 
-Crafty.c('HeroName', {
+Crafty.c('DialogBox', {
   init: function() {
-    this.requires("2D, Grid, DOM, Text")
+    this.requires('2D, DOM, Image')
+    .attr({w: Crafty.viewport.width, h: 150})
+    .image("/web/images/dialog_box.png");
+  },
+  setText: function(text) {
+    new DialogText(text);
+  }
+});
+
+Crafty.c('DialogText', {
+  init: function () {
+    var box = Crafty('DialogBox');
+    this.requires('2D, Grid, DOM, Text')
     .attr({
-      w: 50,
+      w: Crafty.viewport.width,
+      h: 100
+    })
+    .css({left: '10px', top: '20px'})
+    .textFont({size: '13px', weight: 'bold'});
+
+    box.attach(this);
+  },
+  setText: function(text) {
+    this.text(text);
+  }
+});
+
+Crafty.c('HeroName', {
+  init: function () {
+    var hero = Crafty('HeroCharacter');
+    this.requires('2D, Grid, DOM, Text')
+    .attr({
+      w: 150,
       h: 20
     })
-    .text("xXx D@rK BR LOL s2")
-    .css({ "text-align": "center" });
+    .text('&lt;xXx Dark BR LOL xXx&gt;')
+    .css({left: '-40px', top: '-20px'})
+    .textFont({size: '13px', weight: 'bold'});
 
-    this.bind('Move', function() {
-      this.attr({ x: Crafty('HeroCharacter').x,
-                y: Crafty('HeroCharacter').y - 30 });
-    });
+    hero.attach(this);
   }
 });
 
