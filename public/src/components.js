@@ -49,23 +49,23 @@ Crafty.c('Actor', {
 });
 
 Crafty.c('Bucket', {
-  init: function() {
+  init: function () {
     this.requires('Actor, Collision, Block, spr_bucket')
     .collision();
   },
 });
 
 Crafty.c('Door', {
-  init: function() {
+  init: function () {
     var self = this;
     self.requires('Actor, Collision')
     .collision()
-    .onHit('PlayerCharacter', function() {
+    .onHit('PlayerCharacter', function () {
       self.trigger('DoorHit');
       Crafty.scene(self._destination);
     });
   },
-  setDestination: function(dest) {
+  setDestination: function (dest) {
     this._destination = dest;
 
     return this;
@@ -91,7 +91,7 @@ Crafty.c('PlayerCharacter', {
       if (this.hit('Block')) {
         this.x = from.x;
         this.y = from.y;
-      } 
+      }
     });
 
     var animationSpeed = 12;
@@ -121,7 +121,7 @@ Crafty.c('HeroCharacter', {
     .collision(new Crafty.polygon([8, 50], [45, 50], [45, 100], [8, 100]));
 
     this.disableControl();
-    
+
     new HeroName(this.x, this.y);
 
     var animationSpeed = 12;
@@ -141,12 +141,12 @@ Crafty.c('HeroCharacter', {
 });
 
 Crafty.c('DialogBox', {
-  init: function() {
+  init: function () {
     this.requires('2D, DOM, Image')
     .attr({w: Crafty.viewport.width, h: 150})
-    .image("/web/images/dialog_box.png");
+    .image('/web/images/dialog_box.png');
   },
-  setText: function(text) {
+  setText: function (text) {
     new DialogText(text);
   }
 });
@@ -164,7 +164,7 @@ Crafty.c('DialogText', {
 
     box.attach(this);
   },
-  setText: function(text) {
+  setText: function (text) {
     this.text(text);
   }
 });
@@ -274,31 +274,51 @@ Crafty.c('TiledMap', {
   _createObjectEntities: function () {
     var self = this;
 
+    self.PFGrid = new PF.Grid(self._tiled.width + 1, self._tiled.height + 1);
+
     self._tiled.layers.filter(function (layer) {
       return layer.type === 'objectgroup';
     }).forEach(function (layer) {
       layer.objects.forEach(function (object) {
-        if (object.type === 'Player') {
-          var x = Math.floor(object.x / Config.currentLevel.tilewidth);
-          var y = Math.floor(object.y / Config.currentLevel.tileheight);
+        var tileX = Math.floor(object.x / Config.currentLevel.tilewidth);
+        var tileY = Math.floor(object.y / Config.currentLevel.tileheight);
 
+        if (object.type === 'Player') {
           try {
             Crafty('PlayerCharacter').destroy();
           } catch (e) { /*don't care */ }
 
-          var p = new Player(x, y);
+          var p = new Player(tileX, tileY);
           p.attr({z: layer.z});
+        } else {
+          var objectType = (object.type || 'Block');
+          Crafty.e('2D, Canvas, Collision, ' + objectType)
+          .attr({
+            x: object.x,
+            y: object.y,
+            w: object.width,
+            h: object.height,
+            z: layer.z
+          })
+          .collision();
+
+          // Fill the object with of un-walkable tiles
+          var beginX, endX, beginY, endY;
+          beginX = tileX;
+          endX = Math.floor(
+            (object.x + object.width) / Config.currentLevel.tilewidth
+          );
+
+          beginY = tileY;
+          endY = Math.floor(
+            (object.y + object.height) / Config.currentLevel.tileheight
+          );
+
+          for (var x = beginX; x <= endX; x++)
+            for (var y = beginY; y <= endY; y++) {
+              self.PFGrid.setWalkableAt(x, y, false);
+            }
         }
-        var objectType = (object.type || 'Block');
-        Crafty.e('2D, Canvas, Collision, ' + objectType)
-        .attr({
-          x: object.x,
-          y: object.y,
-          w: object.width,
-          h: object.height,
-          z: layer.z
-        })
-        .collision();
       });
     });
   },
@@ -307,59 +327,3 @@ Crafty.c('TiledMap', {
     Config.currentLevel = this._tiled;
   },
 });
-
-/** Halp!
-// Crafty.e('2D, DOM, Fourway, SpriteAnimation, Sprite, Ogre, Collision')
-//               .attr({x: 50, y: 50, z: 10, isWater: false})
-//               .animate('walk_left', 0, 1, 3)
-//               .animate('walk_right', 0, 2, 3)
-//               .animate('walk_up', 0, 3, 3)
-//               .animate('walk_down', 0, 0, 3)
-//               .fourway(2)
-//               .collision( new Crafty.polygon([10,50],[40,50],[40,67],[10,67]))
-//               .bind('Moved', function(from) {
-
-//                 // stop moving when hit obstacle
-//                 if( this.hit('Obstacle') || this.hit('Fence') ){
-//               this.attr({x: from.x, y:from.y});
-//             }
-
-//                 //is in water
-//             if(this.isWater == false &&  this.hit('Water') ){
-//               this.crop(0, 0, 50, 55); //Cut off legs
-//               this.fourway(1);  //movement is slower
-//               this.isWater = true;
-//             }
-
-//                 //is in ground
-//             if(this.isWater == true && !this.hit('Water') ){
-//               this.crop(0,0, 50, 67);
-//               this.fourway(2);
-//               this.isWater = false;
-//             }
-
-//           })
-//           .bind('NewDirection',
-//             function (direction) {
-//                   if (direction.x < 0) {
-//                       if (!this.isPlaying('walk_left'))
-//                           this.stop().animate('walk_left', 10, -1);
-//                   }
-//                   if (direction.x > 0) {
-//                       if (!this.isPlaying('walk_right'))
-//                           this.stop().animate('walk_right', 10, -1);
-//                   }
-//                   if (direction.y < 0) {
-//                       if (!this.isPlaying('walk_up'))
-//                           this.stop().animate('walk_up', 10, -1);
-//                   }
-//                   if (direction.y > 0) {
-//                       if (!this.isPlaying('walk_down'))
-//                           this.stop().animate('walk_down', 10, -1);
-//                   }
-//                   if(!direction.x && !direction.y) {
-//                       this.stop();
-//                   }
-//           })
-//         });
-*/

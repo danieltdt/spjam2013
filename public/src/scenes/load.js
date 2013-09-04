@@ -69,7 +69,7 @@
         // Pointless setTimeout
         setTimeout(function () {
           Crafty.scene('Village');
-        }, 2000);
+        }, 1000);
       });
 
   });
