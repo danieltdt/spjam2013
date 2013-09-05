@@ -1,7 +1,8 @@
 (function (global) {
   'use strict';
 
-  function DirectedMove(tiledMap) {
+  function DirectedMove() {
+    var tilesMap = Config.currentLevel;
     this.finder = new PF.DijkstraFinder();
 
     this.move = function (entity, destination, disableControls) {
@@ -19,13 +20,35 @@
 
       var currentStep = 0;
       var step = function () {
-        // if currentStep >= path.length
-        //   unbind this function
-        //   enable controls (optional)
-        // else
-        //   move entity to path[currentStep]
-        //   increment currentStep
+        if (currentStep >= path.length) {
+          this.unbind(step);
+          this.enableControl();
+        } else {
+          var pos = this.at();
+          var xAxis = pos.x - path[currentStep][0];
+          var yAxis = pos.y - path[currentStep][1];
+
+          if (xAxis === 0) {
+            // nothing
+          } else if (xAxis < 0) {
+            this.x += -10;
+          } else {
+            this.x += 10;
+          }
+
+          if (yAxis === 0) {
+            // nothing
+          } else if (yAxis < 0) {
+            this.y += -10;
+          } else {
+            this.y += 10;
+          }
+
+          if (yAxis === 0 && xAxis === 0)
+            currentStep += 1;
+        }
       };
+      entity.bind('EnterFrame', step);
     };
   }
 

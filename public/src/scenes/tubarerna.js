@@ -11,18 +11,19 @@
       //if Tubarerna Quest is not done and no quest is on going, start Tubarerna Quest actions
       if (Config.completedQuests.indexOf('TubarernaQuest') < 0 && Config.doingQuest == null) {
         console.log('entrou');
-        player.disableControl();
-        player.move('w', 3 * Config.currentLevel.tilewidth);
+        new DirectedMove().move(player, {x: 3, y: 4}, true);
+        //player.disableControl();
+        //player.move('w', 3 * Config.currentLevel.tilewidth);
 
-        player.move('n', 2 * Config.currentLevel.tileheight);
-        player.move('w', 1 * Config.currentLevel.tilewidth);
-        player.move('n', 3 * Config.currentLevel.tileheight);
+        //player.move('n', 2 * Config.currentLevel.tileheight);
+        //player.move('w', 1 * Config.currentLevel.tilewidth);
+        //player.move('n', 3 * Config.currentLevel.tileheight);
 
-        var hero = new Hero(7,11);
-        hero.move('n', 3 * Config.currentLevel.tileheight);
-        hero.move('e', 1 * Config.currentLevel.tilewidth);
-        hero.move('n', 4 * Config.currentLevel.tileheight);
-        hero.move('w', 3 * Config.currentLevel.tileheight);
+        //var hero = new Hero(7,11);
+        //hero.move('n', 3 * Config.currentLevel.tileheight);
+        //hero.move('e', 1 * Config.currentLevel.tilewidth);
+        //hero.move('n', 4 * Config.currentLevel.tileheight);
+        //hero.move('w', 3 * Config.currentLevel.tileheight);
 
         //var dialog = new DialogBox(0, 400);
         //dialog.setText("Onde eu consigo uma torta de maça?");

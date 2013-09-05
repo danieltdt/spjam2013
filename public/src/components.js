@@ -274,7 +274,7 @@ Crafty.c('TiledMap', {
   _createObjectEntities: function () {
     var self = this;
 
-    self.PFGrid = new PF.Grid(self._tiled.width + 1, self._tiled.height + 1);
+    self._tiled.PFGrid = new PF.Grid(self._tiled.width + 1, self._tiled.height + 1);
 
     self._tiled.layers.filter(function (layer) {
       return layer.type === 'objectgroup';
@@ -304,19 +304,19 @@ Crafty.c('TiledMap', {
 
           // Fill the object with of un-walkable tiles
           var beginX, endX, beginY, endY;
-          beginX = tileX;
+          beginX = (tileX <= 0 ? 0 : tileX);
           endX = Math.floor(
             (object.x + object.width) / Config.currentLevel.tilewidth
           );
 
-          beginY = tileY;
+          beginY = (tileY <= 0 ? 0 : tileY);
           endY = Math.floor(
             (object.y + object.height) / Config.currentLevel.tileheight
           );
 
           for (var x = beginX; x <= endX; x++)
             for (var y = beginY; y <= endY; y++) {
-              self.PFGrid.setWalkableAt(x, y, false);
+              self._tiled.PFGrid.setWalkableAt(x, y, false);
             }
         }
       });
