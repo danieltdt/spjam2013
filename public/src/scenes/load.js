@@ -1,24 +1,32 @@
-(function (Crafty, $) {
+(function (Crafty) {
   'use strict';
 
-  Crafty.scene('Load', function() {
+  var start = function (e) {
+    if (e.key === Crafty.keys.SPACE) Crafty.scene('Village');
+  };
+
+  Crafty.scene('Load', function () {
     Crafty.background('#000');
-    Crafty.e('2D, DOM, Text')
+
+    Crafty.e('2D, DOM, Image').image('/web/images/inicial.jpg');
+
+    var loading = Crafty.e('2D, DOM, Text')
       .attr({
         w: Config.viewportWidth,
         h: 20,
         x: 0,
-        y: Config.viewportHeight / 2
+        y: 10
       })
-      .text('Loading...')
-      .css({'text-align': 'center'});
+      .text('Carregando...')
+      .css({'text-align': 'center'})
+      .textFont({size: '23px', weight: 'bold'});
 
     Crafty.audio.add({
-      village_song: "/web/audio/village.mp3",
-      apotecarie_song: "/web/audio/apotecarie.mp3",
-      inn_song: "/web/audio/inn.mp3",
-      tubarerna_song: "/web/audio/tubarerna.mp3",
-      farm_house_song: "/web/audio/farm_house.mp3"
+      village_song: '/web/audio/village.mp3',
+      apotecarie_song: '/web/audio/apotecarie.mp3',
+      inn_song: '/web/audio/inn.mp3',
+      tubarerna_song: '/web/audio/tubarerna.mp3',
+      farm_house_song: '/web/audio/farm_house.mp3'
     });
 
     Crafty.load([
@@ -45,33 +53,24 @@
       '/web/images/chars/neusa.png',
       '/web/images/chars/hero.png'
     ], function () {
-        // Once the images are loaded...
-
-        // Define the individual sprites in the image
-        // Each one (spr_tree, etc.) becomes a component
-        // These components' names are prefixed with "spr_"
-        //  to remind us that they simply cause the entity
-        //  to be drawn with a certain sprite
-        Crafty.sprite(50, '/web/images/objetos.png', {
-          spr_bucket:  [0, 0]
-        });
-
-        // Define the PC's sprite to be the first sprite in the third row of the
-        //  animation sprite map
-        Crafty.sprite(50, 100, '/web/images/chars/neusa.png', {
-          spr_player:  [0, 0],
-        }, 0, 0);
-
-        Crafty.sprite(50, 100, '/web/images/chars/hero.png', {
-          spr_hero:  [0, 0],
-        }, 0, 0);
-
-        // Pointless setTimeout
-        setTimeout(function () {
-          Crafty.scene('Village');
-        }, 2000);
+      Crafty.sprite(50, '/web/images/objetos.png', {
+        spr_bucket:  [0, 0]
       });
 
+      Crafty.sprite(50, 100, '/web/images/chars/neusa.png', {
+        spr_player:  [0, 0],
+      }, 0, 0);
+
+      Crafty.sprite(50, 100, '/web/images/chars/hero.png', {
+        spr_hero:  [0, 0],
+      }, 0, 0);
+    });
+
+    this.bind('KeyDown', start);
+
+    loading.destroy();
+  }, function () {
+    this.unbind('KeyDown', start);
   });
 })(Crafty, jQuery);
 
