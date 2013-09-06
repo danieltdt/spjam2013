@@ -21,31 +21,50 @@
       var currentStep = 0;
       var step = function () {
         if (currentStep >= path.length) {
-          this.unbind(step);
+          this._movement = {x: 0, y: 0};
+          this.unbind('EnterFrame', step);
           this.enableControl();
         } else {
           var pos = this.at();
-          var xAxis = pos.x - path[currentStep][0];
-          var yAxis = pos.y - path[currentStep][1];
+          var stepX = path[currentStep][0];
+          var stepY = path[currentStep][1];
 
-          if (xAxis === 0) {
-            // nothing
-          } else if (xAxis < 0) {
-            this.x += -10;
+          if (pos.x > stepX) {
+            this._movement.x = Math.floor((this._movement.x + this._speed.x) * 1000) / 1000;
+            this._movement.y = 0;
+          } else if (pos.x < stepX){
+            this._movement.x = Math.floor((this._movement.x + -this._speed.x) * 1000) / 1000;
+            this._movement.y = 0;
           } else {
-            this.x += 10;
+            if (pos.y > stepY) {
+              this._movement.x = 0;
+              this._movement.y = Math.floor((this._movement.y + -this._speed.y) * 1000) / 1000;
+            } else if (pos.y < stepY) {
+              this._movement.x = 0;
+              this._movement.y = Math.floor((this._movement.y + this._speed.y) * 1000) / 1000;
+            } else {
+              this._movement = {x: 0, y: 0};
+            }
           }
 
-          if (yAxis === 0) {
-            // nothing
-          } else if (yAxis < 0) {
-            this.y += -10;
-          } else {
-            this.y += 10;
+          if (this._movement.x !== 0) {
+            this.x += this._movement.x;
+            this.trigger('Moved', { x: this.x - this._movement.x, y: this.y });
+          }
+          if (this._movement.y !== 0) {
+            this.y += this._movement.y;
+            this.trigger('Moved', { x: this.x, y: this.y - this._movement.y });
           }
 
-          if (yAxis === 0 && xAxis === 0)
-            currentStep += 1;
+          console.log(currentStep);
+          console.log('pos %s step %s', JSON.stringify(pos), JSON.stringify(path[currentStep]));
+          //console.log('step', path[currentStep]);
+          //console.log('speed', this._speed);
+          //console.log('movement', this._movement);
+
+          if (pos.x === stepX && pos.y === stepY) currentStep += 1;
+
+          this.trigger('NewDirection', this._movement);
         }
       };
       entity.bind('EnterFrame', step);
