@@ -1,9 +1,11 @@
 body {
   background-color: #000;
+  background-image: url('/web/images/bg.jpg');
 }
 
 #cr-stage {
   margin: 0 auto;
+  background-color: #000;
 }
 
 #fps-counter {

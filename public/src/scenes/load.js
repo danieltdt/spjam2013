@@ -6,8 +6,6 @@
   };
 
   Crafty.scene('Load', function () {
-    Crafty.background('#000');
-
     Crafty.e('2D, DOM, Image').image('/web/images/inicial.jpg');
 
     var loading = Crafty.e('2D, DOM, Text')
